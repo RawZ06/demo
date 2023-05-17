@@ -2,13 +2,13 @@ pipeline {
     agent any
     tools {
         maven 'maven-3.9.1'
-     }
+    }
     stages {
         stage('Build') {
             steps {
                 mvn clean install
             }
-        },
+        }
         stage('SonarQube analysis') {
             steps {
                 mvn clean verify sonar:sonar \
