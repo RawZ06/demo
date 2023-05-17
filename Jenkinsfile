@@ -5,11 +5,6 @@ pipeline {
         jdk 'jdk'
     }
     stages {
-        stage('ls') {
-                steps {
-                    sh 'ls -lah /opt/openjdk'
-                }
-            }
         stage('Build') {
             steps {
                 sh 'mvn clean install'
