@@ -1,11 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'maven:3.8.3-openjdk-17'
+        }
+    }
     stages {
         stage('Build') {
             steps {
-                script {
-                    docker.build("demo-test")
-                }
+                sh 'mvn clean install'
             }
         }
         stage('SonarQube analysis') {
